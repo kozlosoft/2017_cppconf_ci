@@ -3,9 +3,19 @@ language: cpp
 
 script:
   - mkdir build && cd build
-  - cmake .. -DCMAKE_CXX_COMPILER=$CMAKE_CXX_COMPILER
+  - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$CMAKE_CXX_COMPILER
   - cmake --build .
   - ./hello
+
+env:
+  - BUILD_TYPE=Release COMPILER=g++-4.9
+  - BUILD_TYPE=Release COMPILER=g++-5
+  - BUILD_TYPE=Release COMPILER=g++-6
+  - BUILD_TYPE=Release COMPILER=clang++-3.9
+  - BUILD_TYPE=Debug COMPILER=g++-4.9
+  - BUILD_TYPE=Debug COMPILER=g++-5
+  - BUILD_TYPE=Debug COMPILER=g++-6
+  - BUILD_TYPE=Debug COMPILER=clang++-3.9
 
 matrix:
   include:
