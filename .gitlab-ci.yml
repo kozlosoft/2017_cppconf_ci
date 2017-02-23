@@ -15,7 +15,6 @@ build:gcc-4:
   script:
     - conan test_package --build=missing
   tags:
-    - docker
   artifacts:
     paths:
       - .conan/data/hello
@@ -26,7 +25,6 @@ build:gcc-5:
   script:
     - conan test_package --build=missing
   tags:
-    - docker
   artifacts:
     paths:
       - .conan/data/hello
@@ -37,7 +35,6 @@ build:gcc-6:
   script:
     - conan test_package --build=missing
   tags:
-    - docker
   artifacts:
     paths:
       - .conan/data/hello
@@ -48,7 +45,6 @@ build:clang-3.9:
   script:
     - conan test_package --build=missing
   tags:
-    - docker
   artifacts:
     paths:
       - .conan/data/hello
@@ -59,7 +55,6 @@ deploy:
   only:
     - master
   tags:
-    - docker
   before_script:
     - pip install conan
     - export CONAN_USER_HOME=$(pwd)
