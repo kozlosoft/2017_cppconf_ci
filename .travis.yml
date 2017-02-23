@@ -7,16 +7,6 @@ script:
   - cmake --build .
   - ./hello
 
-env:
-  - BUILD_TYPE=Release COMPILER=g++-4.9
-  - BUILD_TYPE=Release COMPILER=g++-5
-  - BUILD_TYPE=Release COMPILER=g++-6
-  - BUILD_TYPE=Release COMPILER=clang++-3.9
-  - BUILD_TYPE=Debug COMPILER=g++-4.9
-  - BUILD_TYPE=Debug COMPILER=g++-5
-  - BUILD_TYPE=Debug COMPILER=g++-6
-  - BUILD_TYPE=Debug COMPILER=clang++-3.9
-
 matrix:
   include:
     - addons:
@@ -27,6 +17,8 @@ matrix:
           - g++-4.9
       env:
         - CMAKE_CXX_COMPILER=g++-4.9
+        - BUILD_TYPE=Release COMPILER=g++-4.9
+        - BUILD_TYPE=Debug COMPILER=g++-4.9
     - addons:
         apt:
           sources:
@@ -35,6 +27,8 @@ matrix:
           - g++-5
       env:
         - CMAKE_CXX_COMPILER=g++-5
+        - BUILD_TYPE=Release COMPILER=g++-5
+        - BUILD_TYPE=Debug COMPILER=g++-5
     - addons:
         apt:
           sources:
@@ -43,6 +37,8 @@ matrix:
           - g++-6
       env:
         - CMAKE_CXX_COMPILER=g++-6
+        - BUILD_TYPE=Release COMPILER=g++-6
+        - BUILD_TYPE=Debug COMPILER=g++-6
     - addons:
         apt:
           sources:
@@ -53,13 +49,5 @@ matrix:
           - g++-6
       env:
         - CMAKE_CXX_COMPILER=clang++-3.9
-    - addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          - llvm-toolchain-trusty-4.0
-          packages:
-          - clang-4.0
-          - g++-6
-      env:
-        - CMAKE_CXX_COMPILER=clang++-4.0
+        - BUILD_TYPE=Release COMPILER=clang++-3.9
+        - BUILD_TYPE=Debug COMPILER=clang++-3.9
