@@ -10,4 +10,9 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
     pyenv activate conan
 fi
 
-python build.py
+if [[ "$(uname -s)" == 'Linux' ]]; then
+    CC=$C_COMPILER
+    CXX=$CXX_COMPILER
+fi
+
+conan test_package -s build_type=$BUILD_TYPE --build=missing
