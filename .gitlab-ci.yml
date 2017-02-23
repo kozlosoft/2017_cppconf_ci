@@ -19,35 +19,35 @@ build:gcc-4:
     paths:
       - .conan/data/hello
 
-build:gcc-5:
-  stage: build
-  image: gcc:5
-  script:
-    - conan test_package --build=missing
-  tags:
-  artifacts:
-    paths:
-      - .conan/data/hello
+# build:gcc-5:
+#   stage: build
+#   image: gcc:5
+#   script:
+#     - conan test_package --build=missing
+#   tags:
+#   artifacts:
+#     paths:
+#       - .conan/data/hello
 
-build:gcc-6:
-  stage: build
-  image: gcc:6
-  script:
-    - conan test_package --build=missing
-  tags:
-  artifacts:
-    paths:
-      - .conan/data/hello
+# build:gcc-6:
+#   stage: build
+#   image: gcc:6
+#   script:
+#     - conan test_package --build=missing
+#   tags:
+#   artifacts:
+#     paths:
+#       - .conan/data/hello
 
-build:clang-3.9:
-  stage: build
-  image: walberla/buildenv-ubuntu-clang:3.9
-  script:
-    - conan test_package --build=missing
-  tags:
-  artifacts:
-    paths:
-      - .conan/data/hello
+# build:clang-3.9:
+#   stage: build
+#   image: walberla/buildenv-ubuntu-clang:3.9
+#   script:
+#     - conan test_package --build=missing
+#   tags:
+#   artifacts:
+#     paths:
+#       - .conan/data/hello
 
 deploy:
   stage: deploy
